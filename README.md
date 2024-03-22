@@ -43,5 +43,20 @@ Use ```git rebase -i HEAD~n``` where n is the number of commits you want to squa
 
 Be cautious when using this mode, as it **permanently removes any changes** you haven't committed.
 
+## Git Push --Force
 
+```git push --force``` is used to forcefully update the remote repository with your local changes, potentially overwriting any changes that may exist on the remote branch. It's a powerful and potentially risky command, so it should be used with caution and only in certain situations.
+
+## Git revert
+
+```git revert``` is used to create a new commit that undoes the changes introduced by a specified commit or range of commits. Unlike commands like git reset or git rebase, which alter the commit history, git revert creates a new commit that effectively reverses the changes made in previous commits while preserving the commit history.
+
+```git revert``` does NOT remove the original commit(s) from the history; instead, it adds a new commit that **undoes** their changes. As a result, the repository's history remains intact, and the original commit(s) remain visible in the commit history.
+
+## Warnings
+
+1. ```git amend``` : never amend commits that have been pushed to remote repositories
+2. ```git rebase``` : never rebase a repository that others may work off of
+3. ```git reset``` : never reset commits that have been pushed to remote repositories
+4. ```git push --force``` : only use it when appropriate, use it with caution, and preferably default to using ```git push --force-with-lease```
 
